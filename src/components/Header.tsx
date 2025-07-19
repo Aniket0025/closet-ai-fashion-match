@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Brain, Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,24 +26,28 @@ export const Header = () => {
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-foreground hover:text-primary transition-colors">
+            <Link to="/features" className="text-foreground hover:text-primary transition-colors">
               Features
-            </a>
-            <a href="#how-it-works" className="text-foreground hover:text-primary transition-colors">
+            </Link>
+            <Link to="/how-it-works" className="text-foreground hover:text-primary transition-colors">
               How It Works
-            </a>
-            <a href="#pricing" className="text-foreground hover:text-primary transition-colors">
+            </Link>
+            <Link to="/pricing" className="text-foreground hover:text-primary transition-colors">
               Pricing
-            </a>
-            <a href="#about" className="text-foreground hover:text-primary transition-colors">
+            </Link>
+            <Link to="/about" className="text-foreground hover:text-primary transition-colors">
               About
-            </a>
+            </Link>
           </nav>
           
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost">Sign In</Button>
-            <Button variant="default">Get Started</Button>
+            <Button asChild variant="ghost">
+              <Link to="/signin">Sign In</Link>
+            </Button>
+            <Button asChild variant="default">
+              <Link to="/signup">Get Started</Link>
+            </Button>
           </div>
           
           {/* Mobile Menu Button */}
@@ -58,22 +63,26 @@ export const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 space-y-4 border-t border-border/50 bg-background/95 backdrop-blur-sm">
             <nav className="flex flex-col gap-4">
-              <a href="#features" className="text-foreground hover:text-primary transition-colors">
+              <Link to="/features" className="text-foreground hover:text-primary transition-colors">
                 Features
-              </a>
-              <a href="#how-it-works" className="text-foreground hover:text-primary transition-colors">
+              </Link>
+              <Link to="/how-it-works" className="text-foreground hover:text-primary transition-colors">
                 How It Works
-              </a>
-              <a href="#pricing" className="text-foreground hover:text-primary transition-colors">
+              </Link>
+              <Link to="/pricing" className="text-foreground hover:text-primary transition-colors">
                 Pricing
-              </a>
-              <a href="#about" className="text-foreground hover:text-primary transition-colors">
+              </Link>
+              <Link to="/about" className="text-foreground hover:text-primary transition-colors">
                 About
-              </a>
+              </Link>
             </nav>
             <div className="flex flex-col gap-2 pt-4 border-t border-border/50">
-              <Button variant="ghost" className="justify-start">Sign In</Button>
-              <Button variant="default" className="justify-start">Get Started</Button>
+              <Button asChild variant="ghost" className="justify-start">
+                <Link to="/signin">Sign In</Link>
+              </Button>
+              <Button asChild variant="default" className="justify-start">
+                <Link to="/signup">Get Started</Link>
+              </Button>
             </div>
           </div>
         )}

@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-fashion.jpg";
 
 export const HeroSection = () => {
@@ -34,14 +35,18 @@ export const HeroSection = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button variant="hero" size="lg" className="group">
-                Start Your Style Journey
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <Button asChild variant="hero" size="lg" className="group">
+                <Link to="/signup">
+                  Start Your Style Journey
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </Button>
               
-              <Button variant="elegant" size="lg" className="group">
-                <Zap className="w-5 h-5" />
-                Try AI Analysis
+              <Button asChild variant="elegant" size="lg" className="group">
+                <Link to="/features">
+                  <Zap className="w-5 h-5" />
+                  Try AI Analysis
+                </Link>
               </Button>
             </div>
             
